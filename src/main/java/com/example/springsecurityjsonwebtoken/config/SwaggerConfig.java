@@ -1,4 +1,4 @@
-package kg.airbnb.airbnb.config;
+package com.example.springsecurityjsonwebtoken.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -18,7 +18,7 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .components(new Components()
                         .addSecuritySchemes("Bearer Token", apiKeySecuritySchema()))
-                .info(new Info().title("Airbnb").description("Written by: Kanatbek Ulukbek uulu"))
+                .info(new Info().title("ELMIRZENS").description("Written by: elmirzens"))
                 .security(List.of(new SecurityRequirement().addList("Bearer Token")));
     }
 

@@ -1,8 +1,7 @@
-package kg.airbnb.airbnb.db.service.impl;
+package com.example.springsecurityjsonwebtoken.service;
 
-import kg.airbnb.airbnb.db.repositories.UserRepository;
-import kg.airbnb.airbnb.exceptions.NotFoundException;
-import kg.airbnb.airbnb.db.model.User;
+import com.example.springsecurityjsonwebtoken.model.User;
+import com.example.springsecurityjsonwebtoken.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,12 +15,11 @@ import java.util.Optional;
 public class AuthUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
-
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByEmail(email);
         if (user.isEmpty()) {
-            throw new NotFoundException("User with " + email + " not found!");
+            throw new RuntimeException("User with " + email + " not found!");
         }
         return new AuthUserDetails(user.get());
     }

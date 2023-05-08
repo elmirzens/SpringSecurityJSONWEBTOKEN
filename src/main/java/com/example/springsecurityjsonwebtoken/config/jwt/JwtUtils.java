@@ -1,4 +1,4 @@
-package kg.airbnb.airbnb.config.jwt;
+package com.example.springsecurityjsonwebtoken.config.jwt;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -21,8 +21,7 @@ public class JwtUtils {
         return JWT.create()
                 .withSubject("User details")
                 .withClaim("username", username)
-                .withIssuedAt(new Date())
-                .withIssuer("peaksoft")
+                .withIssuedAt(new Date()).withIssuer("elmirzens")
                 .withExpiresAt(expirationDate)
                 .sign(Algorithm.HMAC256(secret));
     }
@@ -30,7 +29,7 @@ public class JwtUtils {
     public String validateTokenAndRetrieveClaim(String token) {
         JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(secret))
                 .withSubject("User details")
-                .withIssuer("peaksoft")
+                .withIssuer("elmirzens")
                 .build();
         DecodedJWT verify = jwtVerifier.verify(token);
         return verify.getClaim("username").asString();

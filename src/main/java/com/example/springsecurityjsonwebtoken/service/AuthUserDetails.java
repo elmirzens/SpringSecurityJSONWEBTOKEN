@@ -1,6 +1,6 @@
-package kg.airbnb.airbnb.db.service.impl;
+package com.example.springsecurityjsonwebtoken.service;
 
-import kg.airbnb.airbnb.db.model.User;
+import com.example.springsecurityjsonwebtoken.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

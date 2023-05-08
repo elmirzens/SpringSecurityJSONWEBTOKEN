@@ -1,2 +1,12 @@
-package com.example.springsecurityjsonwebtoken.model;public enum Role {
+package com.example.springsecurityjsonwebtoken.model;
+
+import org.springframework.security.core.GrantedAuthority;
+
+public enum Role implements GrantedAuthority {
+    ADMIN,USER;
+
+    @Override
+    public String getAuthority() {
+        return name();
+    }
 }

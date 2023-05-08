@@ -1,7 +1,7 @@
-package kg.airbnb.airbnb.config.jwt;
+package com.example.springsecurityjsonwebtoken.config.jwt;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import kg.airbnb.airbnb.db.service.impl.AuthUserDetailsService;
+import com.example.springsecurityjsonwebtoken.service.AuthUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
