@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestApi {
 
     @GetMapping("user")
-    @PreAuthorize( "hasAuthority('USER')" )
-    public String getUser(){
+    @PreAuthorize("hasAuthority('USER')")
+    public String getUser() {
         return "Hello, I'm User";
     }
 
     @GetMapping("admin")
-    @PreAuthorize( "hasAuthority('ADMIN')" )
-    public String getAdmin(){
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public String getAdmin() {
         return "Hello, I'm Admin";
     }
 }

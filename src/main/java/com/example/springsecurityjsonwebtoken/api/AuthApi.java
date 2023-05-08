@@ -19,15 +19,15 @@ public class AuthApi {
 
     @PostMapping("register")
     @PermitAll
-    public String  registrationPerson(@RequestBody UserRegisterRequest userRegisterRequest) {
-         authService.registerUser(userRegisterRequest);
-         return "Siuuu";
+    public String registrationPerson(@RequestBody UserRegisterRequest userRegisterRequest) {
+        authService.registerUser( userRegisterRequest );
+        return "Siuuu";
     }
 
     @PostMapping("login")
     @PermitAll
     public JWTResponse performLogin(@RequestBody LoginRequest loginResponse) {
-        return authService.authenticate(loginResponse);
+        return authService.authenticate( loginResponse );
     }
 
 }

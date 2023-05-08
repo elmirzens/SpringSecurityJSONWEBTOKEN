@@ -16,19 +16,19 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
-                .components(new Components()
-                        .addSecuritySchemes("Bearer Token", apiKeySecuritySchema()))
-                .info(new Info().title("ELMIRZENS").description("Written by: elmirzens"))
-                .security(List.of(new SecurityRequirement().addList("Bearer Token")));
+                .components( new Components()
+                        .addSecuritySchemes( "Bearer Token", apiKeySecuritySchema() ) )
+                .info( new Info().title( "ELMIRZENS" ).description( "Written by: elmirzens" ) )
+                .security( List.of( new SecurityRequirement().addList( "Bearer Token" ) ) );
     }
 
     private SecurityScheme apiKeySecuritySchema() {
         return new SecurityScheme()
-                .name("Authorization")
-                .description("put your jwt token here!")
-                .in(SecurityScheme.In.HEADER)
-                .type(SecurityScheme.Type.HTTP)
-                .scheme("Bearer");
+                .name( "Authorization" )
+                .description( "put your jwt token here!" )
+                .in( SecurityScheme.In.HEADER )
+                .type( SecurityScheme.Type.HTTP )
+                .scheme( "Bearer" );
     }
 
 }

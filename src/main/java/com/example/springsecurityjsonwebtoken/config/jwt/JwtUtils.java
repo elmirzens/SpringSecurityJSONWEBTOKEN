@@ -17,22 +17,22 @@ public class JwtUtils {
     private String secret;
 
     public String generateToken(String username) {
-        Date expirationDate = Date.from(ZonedDateTime.now().plusMonths(1).toInstant());
+        Date expirationDate = Date.from( ZonedDateTime.now().plusMonths( 1 ).toInstant() );
         return JWT.create()
-                .withSubject("User details")
-                .withClaim("username", username)
-                .withIssuedAt(new Date()).withIssuer("elmirzens")
-                .withExpiresAt(expirationDate)
-                .sign(Algorithm.HMAC256(secret));
+                .withSubject( "User details" )
+                .withClaim( "username", username )
+                .withIssuedAt( new Date() ).withIssuer( "elmirzens" )
+                .withExpiresAt( expirationDate )
+                .sign( Algorithm.HMAC256( secret ) );
     }
 
     public String validateTokenAndRetrieveClaim(String token) {
-        JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(secret))
-                .withSubject("User details")
-                .withIssuer("elmirzens")
+        JWTVerifier jwtVerifier = JWT.require( Algorithm.HMAC256( secret ) )
+                .withSubject( "User details" )
+                .withIssuer( "elmirzens" )
                 .build();
-        DecodedJWT verify = jwtVerifier.verify(token);
-        return verify.getClaim("username").asString();
+        DecodedJWT verify = jwtVerifier.verify( token );
+        return verify.getClaim( "username" ).asString();
     }
 
 }
